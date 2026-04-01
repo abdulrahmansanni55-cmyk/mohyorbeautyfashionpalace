@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohyor Divine Beauty – Enhancing Your Divine Beauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<style>
+:root {
+  --rose: #f4a7c3;
+  --rose-deep: #e8769f;
+  --plum: #9b59b6;
+  --plum-deep: #7d3c98;
+  --plum-dark: #4a235a;
+  --gold: #d4a843;
+  --gold-light: #f0c96a;
+  --cream: #fdf6f0;
+  --white: #ffffff;
+  --glass-bg: rgba(255,255,255,0.07);
+  --glass-border: rgba(255,255,255,0.15);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.75);
+  --text-muted: rgba(255,255,255,0.45);
+  --bg-dark: #0e0612;
+  --bg-card: rgba(20, 8, 28, 0.7);
+  --shadow-glow: 0 0 40px rgba(244,167,195,0.25);
+  --shadow-plum: 0 0 60px rgba(155,89,182,0.3);
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+[data-theme="light"] {
+  --text-primary: #2a0a3a;
+  --text-secondary: #5a2d72;
+  --text-muted: #9b6bac;
+  --glass-bg: rgba(255,255,255,0.65);
+  --glass-border: rgba(155,89,182,0.25);
+  --bg-dark: #faf0ff;
+  --bg-card: rgba(255,255,255,0.8);
+  --shadow-glow: 0 0 40px rgba(155,89,182,0.2);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ───── CUSTOM CURSOR ───── */
+#cursor, #cursor-trail {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s;
+}
+#cursor {
+  width: 12px; height: 12px;
+  background: var(--rose);
+  box-shadow: 0 0 18px var(--rose);
+}
+#cursor-trail {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(244,167,195,0.5);
+  transition: left 0.12s ease, top 0.12s ease;
+}
+
+/* ───── PRELOADER ───── */
+#preloader {
+  position: fixed; inset: 0;
+  background: #0e0612;
+  z-index: 99998;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 24px;
+}
+.pre-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-style: italic;
+  background: linear-gradient(135deg, var(--rose), var(--plum), var(--gold-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  0%,100%{background-position:0% 50%} 50%{background-position:100% 50%}
+}
+.pre-bar {
+  width: 220px; height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.pre-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--plum));
+  animation: load 2.2s ease forwards;
+}
+@keyframes load { from{width:0} to{width:100%} }
+.pre-text {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ───── BACKGROUND MESH ───── */
+.mesh-bg {
+  position: fixed; inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse 80% 60% at 20% 10%, rgba(155,89,182,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 80% at 80% 80%, rgba(244,167,195,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 50% at 50% 50%, rgba(74,35,90,0.08) 0%, transparent 70%),
+              var(--bg-dark);
+  transition: background 0.4s;
+}
+[data-theme="light"] .mesh-bg {
+  background: radial-gradient(ellipse 80% 60% at 20% 10%, rgba(244,167,195,0.2) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 80% at 80% 80%, rgba(155,89,182,0.15) 0%, transparent 60%),
+              #faf0ff;
+}
+
+/* ───── NAVBAR ───── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 9000;
+  padding: 22px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  padding: 12px 5%;
+  background: rgba(14,6,18,0.88);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.3);
+}
+[data-theme="light"] nav.scrolled {
+  background: rgba(250,240,255,0.88);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--rose), var(--plum));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+  background: linear-gradient(90deg, var(--rose), var(--plum));
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--rose); }
+.nav-links a:hover::after { width: 100%; }
+.nav-actions {
+  display: flex; align-items: center; gap: 16px;
+}
+.btn-book-nav {
+  background: linear-gradient(135deg, var(--rose-deep), var(--plum));
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(232,118,159,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.btn-book-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(232,118,159,0.45);
+}
+.theme-toggle {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.theme-toggle:hover {
+  border-color: var(--rose);
+  color: var(--rose);
+}
+.hamburger {
+  display: none;
+  background: none; border: none;
+  cursor: pointer; flex-direction: column; gap: 5px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 1.5px;
+  background: var(--text-secondary);
+  transition: all 0.3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(14,6,18,0.97);
+  z-index: 8999;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 36px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px,5vw,36px);
+  font-style: italic;
+}
+.mobile-menu-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: none;
+  color: white; font-size: 28px; cursor: pointer;
+}
+
+/* ───── SECTIONS SHARED ───── */
+section { position: relative; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10.5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+}
+.section-tag::before, .section-tag::after {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--rose);
+  opacity: 0.6;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--text-primary), var(--rose), var(--plum-deep));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* ───── HERO ───── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-gradient {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 90% at 70% 50%, rgba(155,89,182,0.22) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 60% at 30% 80%, rgba(244,167,195,0.14) 0%, transparent 60%);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.orb-1 { width:500px;height:500px; background:rgba(155,89,182,0.12); top:-150px; right:-100px; animation-delay: 0s; }
+.orb-2 { width:350px;height:350px; background:rgba(244,167,195,0.1); bottom:-80px; left:10%; animation-delay: -3s; }
+.orb-3 { width:250px;height:250px; background:rgba(212,168,67,0.07); top:40%; right:30%; animation-delay: -5s; }
+@keyframes float {
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-30px) scale(1.05)}
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 560px;
+  padding-top: 100px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 28px;
+}
+.hero-badge i { font-size: 9px; color: var(--gold); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.02;
+  margin-bottom: 20px;
+}
+.hero-title .line-1 {
+  display: block;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.9) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-title .line-2 {
+  display: block;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--rose), #e06baa, var(--plum));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-tagline {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-secondary);
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 44px;
+  font-style: italic;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--rose-deep), var(--plum));
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 30px rgba(232,118,159,0.4);
+  position: relative; overflow: hidden;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(232,118,159,0.55); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-secondary {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  color: var(--text-primary);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-secondary:hover {
+  border-color: var(--rose);
+  color: var(--rose);
+  box-shadow: 0 0 30px rgba(244,167,195,0.15);
+}
+.hero-stats {
+  display: flex; gap: 40px;
+  margin-top: 60px;
+}
+.stat-item { text-align: left; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.hero-image {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 52%;
+  overflow: hidden;
+}
+.hero-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.1);
+  transition: transform 8s ease;
+}
+.hero-image::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(14,6,18,0.3) 40%, transparent 70%);
+}
+.hero-image::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+  height: 40%;
+  background: linear-gradient(to top, var(--bg-dark), transparent);
+}
+.scroll-hint {
+  position: absolute; bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-muted); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+  z-index: 5;
+}
+.scroll-hint i { font-size: 16px; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+/* ───── ABOUT ───── */
+#about {
+  padding: 120px 5%;
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-images {
+  position: relative;
+  height: 560px;
+}
+.about-img-main {
+  position: absolute;
+  top: 0; left: 0;
+  width: 72%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.5s;
+}
+.about-img-main:hover { transform: scale(1.02); }
+.about-img-secondary {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 52%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 3px solid rgba(244,167,195,0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  transition: transform 0.5s;
+}
+.about-img-secondary:hover { transform: scale(1.02); }
+.about-badge-float {
+  position: absolute;
+  top: 50%; left: -20px;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--plum-deep), var(--plum));
+  padding: 18px 22px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(155,89,182,0.4);
+  z-index: 3;
+}
+.about-badge-float .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 700; color: white; line-height: 1;
+}
+.about-badge-float .lbl {
+  font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.75); text-transform: uppercase; margin-top: 4px;
+}
+.about-text { display: flex; flex-direction: column; gap: 24px; }
+.about-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 8px;
+}
+.feature-pill {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s;
+}
+.feature-pill:hover {
+  border-color: rgba(244,167,195,0.4);
+  transform: translateX(4px);
+}
+.feature-pill i { color: var(--rose); font-size: 16px; width: 20px; }
+.feature-pill span { font-size: 13px; color: var(--text-secondary); }
+
+/* ───── SERVICES ───── */
+#services {
+  padding: 120px 5%;
+  background: linear-gradient(180deg, transparent, rgba(155,89,182,0.04), transparent);
+}
+.services-header {
+  text-align: center; margin-bottom: 72px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  max-width: 1200px; margin: 0 auto;
+}
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  border-radius: 24px;
+  padding: 40px 32px;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(244,167,195,0.08), rgba(155,89,182,0.08));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(244,167,195,0.15) 0%, transparent 70%);
+  top: -60px; right: -60px;
+  transition: all 0.4s;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(244,167,195,0.4);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 60px rgba(244,167,195,0.12);
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover::after { transform: scale(1.5); }
+.service-icon {
+  width: 68px; height: 68px;
+  background: linear-gradient(135deg, rgba(232,118,159,0.2), rgba(155,89,182,0.2));
+  border: 1px solid rgba(244,167,195,0.25);
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  margin-bottom: 28px;
+  transition: all 0.3s;
+  position: relative; z-index: 1;
+}
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, rgba(232,118,159,0.35), rgba(155,89,182,0.35));
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(244,167,195,0.3);
+}
+.service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.service-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-weight: 300;
+  position: relative; z-index: 1;
+}
+.service-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose);
+  text-decoration: none;
+  transition: gap 0.3s;
+  position: relative; z-index: 1;
+}
+.service-card:hover .service-link { gap: 14px; }
+
+/* ───── GALLERY ───── */
+#gallery { padding: 120px 5%; }
+.gallery-header { text-align: center; margin-bottom: 56px; }
+.gallery-tabs {
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.tab-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(16px);
+}
+.tab-btn:hover, .tab-btn.active {
+  background: linear-gradient(135deg, var(--rose-deep), var(--plum));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 24px rgba(232,118,159,0.35);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1200px; margin: 0 auto;
+}
+.gallery-item {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s;
+}
+.gallery-item:nth-child(3n+2) { aspect-ratio: 3/5; }
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery-item::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, transparent, rgba(155,89,182,0.7));
+  opacity: 0; transition: opacity 0.4s;
+}
+.gallery-item::after {
+  content: '\f00e';
+  font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  z-index: 2;
+  color: white; font-size: 28px;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.gallery-item:hover img { transform: scale(1.12); }
+.gallery-item:hover::before { opacity: 1; }
+.gallery-item:hover::after { transform: translate(-50%,-50%) scale(1); }
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 2; padding: 16px;
+  transform: translateY(100%); transition: transform 0.4s;
+}
+.gallery-item:hover .gallery-caption { transform: translateY(0); }
+.gallery-caption span {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ───── LIGHTBOX ───── */
+#lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 99990;
+  background: rgba(0,0,0,0.95);
+  align-items: center; justify-content: center;
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 90vw; max-height: 85vh;
+  border-radius: var(--radius);
+  box-shadow: 0 0 80px rgba(244,167,195,0.15);
+}
+#lightbox-close {
+  position: absolute; top: 24px; right: 32px;
+  background: none; border: none; color: white;
+  font-size: 36px; cursor: pointer; opacity: 0.7;
+  transition: opacity 0.2s;
+}
+#lightbox-close:hover { opacity: 1; }
+
+/* ───── TESTIMONIALS ───── */
+#testimonials {
+  padding: 120px 5%;
+  background: linear-gradient(180deg, transparent, rgba(244,167,195,0.03), transparent);
+}
+.testi-header { text-align: center; margin-bottom: 64px; }
+.testi-carousel {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; overflow: hidden;
+}
+.testi-track {
+  display: flex; gap: 28px;
+  transition: transform 0.6s cubic-bezier(0.77,0,0.18,1);
+}
+.testi-card {
+  min-width: calc(33.33% - 19px);
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  border-radius: 24px;
+  padding: 36px 32px;
+  transition: border-color 0.3s;
+}
+.testi-card:hover { border-color: rgba(244,167,195,0.3); }
+.testi-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 20px; }
+.testi-text {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+}
+.testi-author {
+  display: flex; align-items: center; gap: 14px;
+}
+.testi-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(244,167,195,0.35);
+}
+.testi-info .name {
+  font-weight: 500; font-size: 14px;
+}
+.testi-info .role {
+  font-size: 11.5px; color: var(--text-muted); letter-spacing: 1px;
+}
+.testi-controls {
+  display: flex; justify-content: center; gap: 12px; margin-top: 48px;
+}
+.testi-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+.testi-dot.active {
+  background: var(--rose);
+  width: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(244,167,195,0.5);
+}
+
+/* ───── COUNTERS ───── */
+#counters {
+  padding: 80px 5%;
+}
+.counters-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  border-radius: 28px;
+  padding: 56px 48px;
+  position: relative; overflow: hidden;
+}
+.counters-inner::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--plum), var(--gold-light), transparent);
+}
+.counter-item { text-align: center; }
+.counter-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--rose), var(--plum));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.counter-label {
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 8px;
+}
+
+/* ───── CONTACT ───── */
+#contact { padding: 120px 5%; }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1100px; margin: 0 auto;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 28px; }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 22px 24px;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+.contact-detail:hover {
+  border-color: rgba(244,167,195,0.35);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-glow);
+}
+.contact-icon {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, rgba(232,118,159,0.2), rgba(155,89,182,0.2));
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--rose);
+  flex-shrink: 0;
+}
+.contact-detail .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.contact-detail .val { font-size: 14.5px; color: var(--text-primary); font-weight: 400; }
+.map-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  height: 200px;
+}
+.map-container iframe { width:100%;height:100%;border:none; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.form-group input, .form-group textarea {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  color: var(--text-primary);
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: rgba(244,167,195,0.5);
+  box-shadow: 0 0 20px rgba(244,167,195,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+
+/* ───── CTA SECTION ───── */
+#cta {
+  padding: 100px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--white), var(--rose), var(--gold-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.cta-sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+.btn-cta {
+  background: linear-gradient(135deg, var(--rose-deep), var(--plum-deep));
+  color: white;
+  border: none;
+  padding: 20px 52px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s;
+  box-shadow: 0 8px 40px rgba(232,118,159,0.45);
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.btn-cta:hover {
+  transform: scale(1.06) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(232,118,159,0.6);
+}
+.cta-bg-orbs {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.cta-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: float 7s ease-in-out infinite;
+}
+.cta-orb-1 { width: 400px;height:400px;background:rgba(155,89,182,0.12);top:-100px;left:-80px; }
+.cta-orb-2 { width: 350px;height:350px;background:rgba(244,167,195,0.1);bottom:-80px;right:-60px;animation-delay:-3s; }
+
+/* ───── FOOTER ───── */
+footer {
+  padding: 60px 5% 30px;
+  border-top: 1px solid var(--glass-border);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 60px;
+  max-width: 1200px; margin: 0 auto;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-top: 12px;
+  max-width: 280px;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--rose), var(--plum));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.footer-socials {
+  display: flex; gap: 12px; margin-top: 24px;
+}
+.social-icon {
+  width: 38px; height: 38px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-icon:hover {
+  border-color: var(--rose);
+  color: var(--rose);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(244,167,195,0.2);
+}
+.footer-col h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: color 0.3s;
+}
+.footer-col ul a:hover { color: var(--rose); }
+.footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12.5px; color: var(--text-muted); }
+
+/* ───── FLOATING BUTTONS ───── */
+.float-wrap {
+  position: fixed;
+  right: 28px; bottom: 32px;
+  display: flex; flex-direction: column; gap: 12px;
+  z-index: 8000;
+  align-items: flex-end;
+}
+.float-btn {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+.whatsapp-btn {
+  background: #25D366;
+}
+.whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+.call-btn {
+  background: linear-gradient(135deg, var(--rose-deep), var(--plum));
+  box-shadow: 0 6px 24px rgba(232,118,159,0.4);
+}
+.call-btn:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(232,118,159,0.55); }
+.float-label {
+  position: absolute;
+  right: 60px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  font-size: 11px;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.float-btn:hover .float-label { opacity: 1; }
+
+/* ───── BOOKING MODAL ───── */
+#booking-modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 99995;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+#booking-modal.open { display: flex; }
+.modal-box {
+  background: linear-gradient(135deg, rgba(20,8,28,0.97), rgba(40,10,55,0.97));
+  border: 1px solid rgba(244,167,195,0.2);
+  border-radius: 28px;
+  padding: 48px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 80px rgba(244,167,195,0.08);
+  animation: modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn {
+  from{transform:scale(0.85) translateY(30px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+.modal-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--plum), var(--gold-light));
+  border-radius: 28px 28px 0 0;
+}
+.modal-close {
+  position: absolute; top: 18px; right: 22px;
+  background: none; border: none; color: var(--text-muted);
+  font-size: 24px; cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--rose); }
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px; font-style: italic;
+  background: linear-gradient(135deg, var(--rose), var(--plum));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+.modal-subtitle {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 32px;
+}
+.modal-form { display: flex; flex-direction: column; gap: 16px; }
+.modal-form select {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 15px 18px;
+  border-radius: var(--radius-sm);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+.modal-form select:focus { border-color: rgba(244,167,195,0.5); }
+.modal-form select option { background: #1a0825; }
+.modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ───── RIPPLE ───── */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0);
+  animation: ripple-anim 0.7s linear;
+  pointer-events: none;
+}
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ───── RESPONSIVE ───── */
+@media(max-width:1024px) {
+  .gallery-grid { grid-template-columns: repeat(3,1fr); }
+  .testi-card { min-width: calc(50% - 14px); }
+  .counters-inner { grid-template-columns: repeat(2,1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:768px) {
+  .nav-links, .btn-book-nav { display: none; }
+  .hamburger { display: flex; }
+  .hero-image { display: none; }
+  .hero-content { max-width: 100%; padding-top: 120px; }
+  .about-inner, .contact-inner { grid-template-columns: 1fr; }
+  .about-images { height: 360px; }
+  .about-badge-float { left: auto; right: -10px; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+  .testi-card { min-width: 100%; }
+  .counters-inner { grid-template-columns: repeat(2,1fr); gap: 32px; padding: 40px 28px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-stats { gap: 28px; }
+  .modal-row { grid-template-columns: 1fr; }
+  .modal-box { padding: 36px 28px; }
+}
+@media(max-width:480px) {
+  .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .counters-inner { grid-template-columns: 1fr 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .btn-primary, .btn-secondary { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── CURSOR ── -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- ── MESH BG ── -->
+<div class="mesh-bg"></div>
+
+<!-- ── PRELOADER ── -->
+<div id="preloader">
+  <div class="pre-logo">Mohyor Divine Beauty</div>
+  <div class="pre-bar"><div class="pre-fill"></div></div>
+  <div class="pre-text">Crafting Your Divine Look</div>
+</div>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-close"><i class="fa fa-times"></i></button>
+  <a href="#hero" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Mohyor Divine Beauty</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" title="Toggle theme"><i class="fa fa-moon"></i></button>
+    <button class="btn-book-nav" id="nav-book">Book Now</button>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section id="hero">
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-orb orb-3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" data-aos="fade-down">
+      <i class="fa fa-star"></i>
+      Premium Beauty Studio · Atan Ota
+    </div>
+    <h1 class="hero-title">
+      <span class="line-1" data-aos="fade-up" data-aos-delay="100">Mohyor</span>
+      <span class="line-2" data-aos="fade-up" data-aos-delay="200">Divine Beauty</span>
+    </h1>
+    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">Enhancing Your Divine Beauty</p>
+    <div class="hero-ctas" data-aos="fade-up" data-aos-delay="400">
+      <button class="btn-primary" id="hero-book">
+        <i class="fa fa-calendar-check"></i> Book Appointment
+      </button>
+      <a href="#services" class="btn-secondary">
+        View Services <i class="fa fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+      <div class="stat-item">
+        <div class="stat-num counter-stat" data-target="500">0</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num counter-stat" data-target="8">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num counter-stat" data-target="12">0</div>
+        <div class="stat-label">Services Offered</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80" alt="Beauty Model">
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <i class="fa fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ════════════════════ ABOUT ════════════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-images" data-aos="fade-right">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=700&q=80" alt="Beauty Studio">
+      <img class="about-img-secondary" src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=500&q=80" alt="Makeup Artist">
+      <div class="about-badge-float">
+        <div class="num">★ 4.9</div>
+        <div class="lbl">Client Rating</div>
+      </div>
+    </div>
+    <div class="about-text" data-aos="fade-left" data-aos-delay="100">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">Where Beauty<br><em>Meets Artistry</em></h2>
+      <p class="section-sub">
+        At Mohyor Divine Beauty, we believe every woman deserves to feel radiant and confident. Founded in the heart of Atan Ota, we combine world-class techniques with a deep passion for enhancing natural beauty.
+      </p>
+      <p class="section-sub">
+        From bridal glam to everyday elegance, our expert team brings years of professional training and an eye for perfection to every appointment. Your beauty is our canvas — and we treat it with divine care.
+      </p>
+      <div class="about-features">
+        <div class="feature-pill" data-aos="fade-up" data-aos-delay="150">
+          <i class="fa fa-crown"></i>
+          <span>Premium Products</span>
+        </div>
+        <div class="feature-pill" data-aos="fade-up" data-aos-delay="200">
+          <i class="fa fa-heart"></i>
+          <span>Client-First Care</span>
+        </div>
+        <div class="feature-pill" data-aos="fade-up" data-aos-delay="250">
+          <i class="fa fa-certificate"></i>
+          <span>Expert Professionals</span>
+        </div>
+        <div class="feature-pill" data-aos="fade-up" data-aos-delay="300">
+          <i class="fa fa-star"></i>
+          <span>5-Star Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-tag" data-aos="fade-up">What We Offer</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Our Signature<br><em>Beauty Services</em></h2>
+    <p class="section-sub" style="margin:16px auto 0;text-align:center;" data-aos="fade-up" data-aos-delay="160">Every service crafted to perfection — because you deserve nothing less.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="service-icon">💄</div>
+      <div class="service-name">Makeup</div>
+      <p class="service-desc">From natural day looks to full glam evenings — our makeup artists sculpt, blend, and highlight to bring out your most radiant self.</p>
+      <a href="#" class="service-link" onclick="openModal();return false;">Book Now <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="service-icon">💇‍♀️</div>
+      <div class="service-name">Hair Dressing</div>
+      <p class="service-desc">Styling, braiding, weaving, treatments and more. We keep your crown looking royally gorgeous at all times.</p>
+      <a href="#" class="service-link" onclick="openModal();return false;">Book Now <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="service-icon">💅</div>
+      <div class="service-name">Manicure & Pedicure</div>
+      <p class="service-desc">Luxurious nail care from classic polish to intricate nail art. Your hands and feet deserve the royal treatment.</p>
+      <a href="#" class="service-link" onclick="openModal();return false;">Book Now <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="service-icon">👰</div>
+      <div class="service-name">Bridal Makeup</div>
+      <p class="service-desc">Your wedding day is once in a lifetime — we ensure you look breathtakingly divine. Long-wear, flawless bridal glam tailored for you.</p>
+      <a href="#" class="service-link" onclick="openModal();return false;">Book Now <i class="fa fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ GALLERY ════════════════════ -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div class="section-tag" data-aos="fade-up">Our Work</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Beauty in<br><em>Every Frame</em></h2>
+  </div>
+  <div class="gallery-tabs" data-aos="fade-up" data-aos-delay="120">
+    <button class="tab-btn active" data-filter="all">All</button>
+    <button class="tab-btn" data-filter="makeup">Makeup</button>
+    <button class="tab-btn" data-filter="hair">Hair</button>
+    <button class="tab-btn" data-filter="nails">Nails</button>
+    <button class="tab-btn" data-filter="wigs">Wigs</button>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-item" data-cat="makeup" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1503236823255-94609f598e71?w=400&q=80" alt="Makeup">
+      <div class="gallery-caption"><span>Makeup</span></div>
+    </div>
+    <div class="gallery-item" data-cat="hair" data-aos="zoom-in" data-aos-delay="50">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&q=80" alt="Hair">
+      <div class="gallery-caption"><span>Hairstyle</span></div>
+    </div>
+    <div class="gallery-item" data-cat="nails" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Nails">
+      <div class="gallery-caption"><span>Nail Art</span></div>
+    </div>
+    <div class="gallery-item" data-cat="wigs" data-aos="zoom-in" data-aos-delay="150">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Wigs">
+      <div class="gallery-caption"><span>Wigs</span></div>
+    </div>
+    <div class="gallery-item" data-cat="makeup" data-aos="zoom-in" data-aos-delay="50">
+      <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=400&q=80" alt="Glam">
+      <div class="gallery-caption"><span>Glam Makeup</span></div>
+    </div>
+    <div class="gallery-item" data-cat="hair" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1595956553066-fe24a8c33395?w=400&q=80" alt="Braids">
+      <div class="gallery-caption"><span>Braids</span></div>
+    </div>
+    <div class="gallery-item" data-cat="nails" data-aos="zoom-in" data-aos-delay="150">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Pedicure">
+      <div class="gallery-caption"><span>Pedicure</span></div>
+    </div>
+    <div class="gallery-item" data-cat="makeup" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=400&q=80" alt="Bridal">
+      <div class="gallery-caption"><span>Bridal Glam</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close"><i class="fa fa-times"></i></button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ════════════════════ TESTIMONIALS ════════════════════ -->
+<section id="testimonials">
+  <div class="testi-header">
+    <div class="section-tag" data-aos="fade-up">Client Love</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">What Our Queens<br><em>Are Saying</em></h2>
+  </div>
+  <div class="testi-carousel" data-aos="fade-up" data-aos-delay="160">
+    <div class="testi-track" id="testi-track">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I came for my wedding makeup and left feeling like an absolute queen. Mohyor transformed me beyond my imagination — every guest was speechless!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt="Tolu">
+          <div class="testi-info">
+            <div class="name">Toluwani Adeyemi</div>
+            <div class="role">Bride · Lagos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The nail art they did for my birthday was jaw-dropping. So detailed, so elegant. I get compliments everywhere I go. This place is truly divine!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&q=80" alt="Funmi">
+          <div class="testi-info">
+            <div class="name">Funmilayo Okafor</div>
+            <div class="role">Regular Client</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Best hair studio in Ogun State, no contest. They installed my wig so naturally — everyone thought it was my real hair. I'm never going anywhere else."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1513682121497-80211f36a7d3?w=100&q=80" alt="Amaka">
+          <div class="testi-info">
+            <div class="name">Amaka Chukwu</div>
+            <div class="role">Wig Client · Ota</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I've been coming here for 3 years and every single visit feels like a luxury spa experience. The team is professional, warm, and incredibly talented."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=100&q=80" alt="Shade">
+          <div class="testi-info">
+            <div class="name">Shadrach Banjo</div>
+            <div class="role">Loyal Client · 3 years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"They did my makeup for a corporate event and I looked polished, elegant, and powerful. Professional from start to finish. Highly recommend!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" alt="Ngozi">
+          <div class="testi-info">
+            <div class="name">Ngozi Ekwueme</div>
+            <div class="role">Corporate Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-controls" id="testi-dots"></div>
+  </div>
+</section>
+
+<!-- ════════════════════ COUNTERS ════════════════════ -->
+<section id="counters">
+  <div class="counters-inner" data-aos="fade-up">
+    <div class="counter-item">
+      <div class="counter-num" data-target="500" data-suffix="+">0</div>
+      <div class="counter-label">Happy Clients</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="8" data-suffix="+">0</div>
+      <div class="counter-label">Years of Experience</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="200" data-suffix="+">0</div>
+      <div class="counter-label">Bridal Makeups</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="100" data-suffix="%">0</div>
+      <div class="counter-label">Satisfaction Rate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CONTACT ════════════════════ -->
+<section id="contact">
+  <div style="text-align:center;margin-bottom:64px;">
+    <div class="section-tag" data-aos="fade-up">Get In Touch</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Visit or<br><em>Contact Us</em></h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info" data-aos="fade-right">
+      <a href="tel:09114602516" class="contact-detail">
+        <div class="contact-icon"><i class="fa fa-phone"></i></div>
+        <div><div class="label">Phone</div><div class="val">09114602516</div></div>
+      </a>
+      <a href="https://wa.me/2348053076553" target="_blank" class="contact-detail">
+        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+        <div><div class="label">WhatsApp</div><div class="val">08053076553</div></div>
+      </a>
+      <div class="contact-detail">
+        <div class="contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+        <div><div class="label">Location</div><div class="val">Opposite Adarafunwa Church, Atan Ota, Ogun State</div></div>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.073!2d3.2334!3d6.6822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c0000000001%3A0x0!2sAtan%20Ota%2C%20Ogun%20State!5e0!3m2!1sen!2sng!4v1680000000000"
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <div class="contact-form" data-aos="fade-left" data-aos-delay="100">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="e.g. Amaka Johnson">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="08012345678">
+      </div>
+      <div class="form-group">
+        <label>Service Interested In</label>
+        <input type="text" placeholder="e.g. Bridal Makeup">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us what you need…"></textarea>
+      </div>
+      <button class="btn-primary ripple-btn" onclick="handleContactSubmit(this)">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA ════════════════════ -->
+<section id="cta">
+  <div class="cta-bg-orbs">
+    <div class="cta-orb cta-orb-1"></div>
+    <div class="cta-orb cta-orb-2"></div>
+  </div>
+  <div class="cta-inner" data-aos="zoom-in">
+    <h2 class="cta-title">Book Your Glow Today ✨</h2>
+    <p class="cta-sub">Your transformation is just one appointment away. Let us reveal the most divine version of you.</p>
+    <button class="btn-cta ripple-btn" onclick="openModal()">
+      <i class="fa fa-calendar-check"></i>
+      Book An Appointment
+    </button>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Mohyor Divine Beauty</div>
+      <p>Enhancing Your Divine Beauty since 2016. Proudly serving Atan Ota and beyond with world-class beauty services.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/2348053076553" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Makeup</a></li>
+        <li><a href="#services">Hair Dressing</a></li>
+        <li><a href="#services">Manicure & Pedicure</a></li>
+        <li><a href="#services">Bridal Makeup</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:09114602516"><i class="fa fa-phone" style="width:16px;color:var(--rose)"></i> 09114602516</a></li>
+        <li><a href="https://wa.me/2348053076553" target="_blank"><i class="fab fa-whatsapp" style="width:16px;color:var(--rose)"></i> 08053076553</a></li>
+        <li><a href="#contact"><i class="fa fa-map-marker-alt" style="width:16px;color:var(--rose)"></i> Atan Ota, Ogun State</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Mohyor Divine Beauty. All rights reserved.</p>
+    <p>Crafted with <span style="color:var(--rose)">♥</span> for Divine Queens</p>
+  </div>
+</footer>
+
+<!-- ── FLOAT BTNS ── -->
+<div class="float-wrap">
+  <a href="https://wa.me/2348053076553" target="_blank" class="float-btn whatsapp-btn" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="float-label">WhatsApp</span>
+  </a>
+  <a href="tel:09114602516" class="float-btn call-btn" title="Call Us">
+    <i class="fa fa-phone"></i>
+    <span class="float-label">Call Us</span>
+  </a>
+</div>
+
+<!-- ── BOOKING MODAL ── -->
+<div id="booking-modal">
+  <div class="modal-box">
+    <div class="modal-top"></div>
+    <button class="modal-close" id="modal-close"><i class="fa fa-times"></i></button>
+    <div class="modal-title">Book Appointment</div>
+    <div class="modal-subtitle">Fill the form and we'll confirm within 24 hours ✨</div>
+    <div class="modal-form">
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="08012345678"></div>
+      <div class="form-group">
+        <label>Service</label>
+        <select>
+          <option value="">Select a service</option>
+          <option>Makeup</option>
+          <option>Hair Dressing</option>
+          <option>Manicure & Pedicure</option>
+          <option>Bridal Makeup</option>
+          <option>Full Package</option>
+        </select>
+      </div>
+      <div class="modal-row">
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+        <div class="form-group"><label>Preferred Time</label><input type="time"></div>
+      </div>
+      <div class="form-group"><label>Special Requests</label><textarea placeholder="Any notes for us…" style="min-height:90px"></textarea></div>
+      <button class="btn-primary ripple-btn" style="width:100%;justify-content:center;" onclick="submitBooking(this)">
+        <i class="fa fa-calendar-check"></i> Confirm Booking
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ SCRIPTS ════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+// ── INIT ──
+AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+// ── PRELOADER ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const pre = document.getElementById('preloader');
+    pre.style.transition = 'opacity 0.7s, transform 0.7s';
+    pre.style.opacity = '0';
+    pre.style.transform = 'scale(1.05)';
+    setTimeout(() => pre.style.display = 'none', 700);
+  }, 2400);
+});
+
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+const trail = document.getElementById('cursor-trail');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+  }, 80);
+});
+document.querySelectorAll('a,button,.gallery-item,.service-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1.8)';
+    cursor.style.background = 'var(--plum)';
+    trail.style.opacity = '0.4';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursor.style.background = 'var(--rose)';
+    trail.style.opacity = '1';
+  });
+});
+
+// ── NAVBAR ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── MOBILE MENU ──
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.add('open');
+});
+document.getElementById('mobile-close').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.remove('open');
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.remove('open');
+  });
+});
+
+// ── THEME TOGGLE ──
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+  themeToggle.innerHTML = isLight
+    ? '<i class="fa fa-moon"></i>'
+    : '<i class="fa fa-sun"></i>';
+});
+
+// ── MODAL ──
+function openModal() {
+  document.getElementById('booking-modal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('booking-modal').classList.remove('open');
+}
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('booking-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('booking-modal')) closeModal();
+});
+document.getElementById('nav-book').addEventListener('click', openModal);
+document.getElementById('hero-book').addEventListener('click', openModal);
+
+function submitBooking(btn) {
+  btn.innerHTML = '<i class="fa fa-check"></i> Booked! We\'ll contact you soon';
+  btn.style.background = 'linear-gradient(135deg, #27ae60, #1e8449)';
+  setTimeout(() => {
+    closeModal();
+    btn.innerHTML = '<i class="fa fa-calendar-check"></i> Confirm Booking';
+    btn.style.background = '';
+  }, 2500);
+}
+
+function handleContactSubmit(btn) {
+  btn.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
+  btn.style.background = 'linear-gradient(135deg, #27ae60, #1e8449)';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message';
+    btn.style.background = '';
+  }, 2500);
+}
+
+// ── RIPPLE ──
+document.querySelectorAll('.ripple-btn,.btn-primary,.btn-secondary,.btn-cta').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const r = document.createElement('span');
+    r.className = 'ripple';
+    const size = Math.max(rect.width, rect.height);
+    r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+    this.appendChild(r);
+    setTimeout(() => r.remove(), 700);
+  });
+});
+
+// ── GALLERY FILTER + LIGHTBOX ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.style.display = '';
+        item.style.animation = 'none';
+        requestAnimationFrame(() => {
+          item.style.animation = 'zoomIn 0.4s ease';
+        });
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    lbImg.src = item.querySelector('img').src;
+    lb.classList.add('open');
+  });
+});
+document.getElementById('lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
+lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
+
+// ── TESTIMONIALS CAROUSEL ──
+const track = document.getElementById('testi-track');
+const cards = track.children;
+let current = 0;
+const perView = () => window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+const total = () => Math.ceil(cards.length / perView());
+
+function buildDots() {
+  const dotsEl = document.getElementById('testi-dots');
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < total(); i++) {
+    const d = document.createElement('button');
+    d.className = 'testi-dot' + (i === current ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  }
+}
+function goTo(n) {
+  current = n;
+  const cardW = cards[0].offsetWidth + 28;
+  track.style.transform = `translateX(-${current * perView() * cardW}px)`;
+  document.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===current));
+}
+buildDots();
+setInterval(() => goTo((current + 1) % total()), 5000);
+window.addEventListener('resize', buildDots);
+
+// ── COUNTERS ──
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const suffix = el.dataset.suffix || '+';
+  let start = 0;
+  const duration = 1800;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const val = Math.floor(progress * target);
+    el.textContent = val + (progress >= 1 ? suffix : '');
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Counter via IntersectionObserver
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.counter-num[data-target]').forEach(animateCounter);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const countersSection = document.getElementById('counters');
+if (countersSection) counterObserver.observe(countersSection);
+
+// Hero stat counters
+const heroStatObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.counter-stat').forEach(el => {
+        const t = +el.dataset.target;
+        let s = 0, start = null;
+        const step = ts => {
+          if (!start) start = ts;
+          const p = Math.min((ts - start) / 1400, 1);
+          el.textContent = Math.floor(p * t) + (p >= 1 ? '+' : '');
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+      heroStatObs.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+heroStatObs.observe(document.getElementById('hero'));
+
+// ── HERO IMAGE SLOW ZOOM ──
+const heroImg = document.querySelector('.hero-image img');
+if (heroImg) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    heroImg.style.transform = `scale(${1 + scrolled * 0.00015})`;
+  });
+}
+
+// ── GSAP FLOATING ORBS ──
+if (typeof gsap !== 'undefined') {
+  gsap.to('.orb-1', { y: -40, x: 20, duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to('.orb-2', { y: 30, x: -15, duration: 10, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1 });
+  gsap.to('.orb-3', { y: -25, x: 10, duration: 7, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2 });
+}
+
+// ── SMOOTH ANCHOR ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── CSS injection for zoomIn anim ──
+const style = document.createElement('style');
+style.textContent = `@keyframes zoomIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
